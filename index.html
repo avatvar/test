@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link rel=stylesheet href="style.css">
+	<link rel="stylesheet" href="slide/css/style.css">
+	<script src="jquery-1.9.1.min.js"></script>
+	<script src="slide/js/slides.js"></script>
+	
+		<script>
+		/*
+			Get the curent slide
+		*/
+		function currentSlide( current ) {
+			$(".current_slide").text(current + " of " + $("#slides").slides("status","total") );
+		}
+		
+		$(function(){
+			/*
+				Initialize SlidesJS
+			*/
+			$("#slides").slides({
+				navigateEnd: function( current ) {
+					currentSlide( current );
+				},
+				loaded: function(){
+					currentSlide( 1 );
+				}
+			});
+			
+			$("#slides").slides("play");
+			
+			/*
+				Play/stop button
+			*/
+			$(".controls").click(function(e) {
+				e.preventDefault();
+				
+				// Example status method usage
+				var slidesStatus = $("#slides").slides("status","state");
+				
+				if (!slidesStatus || slidesStatus === "stopped") {
+
+					// Example play method usage
+					$("#slides").slides("play");
+
+					// Change text
+					$(this).text("Stop");
+				} else {
+					
+					// Example stop method usage
+					$("#slides").slides("stop");
+					
+					// Change text
+					$(this).text("Play");
+				}
+			});
+		});
+	</script>
+
+	
+</head>
+
+<body>
+
+	<div id="iphone">
+		
+		<div id="content">
+		
+			<div id="title">
+			<ul>
+				<li><a href="index.html"><b>Помощник путешественника</b></a></li>
+			</ul>
+			</div>
+		
+			<div id="anons" class="category">
+
+				<div id="container">
+					<!-- start SlidesJS slideshow -->
+					<div id="slides">
+						<div class="category" style="margin-top:0px;" onClick="document.location.href='eskurs_sub.html'">
+							<table>
+								<tr>
+									<td colspan="2">
+										<img src="img/esk/park.png" width="72" height="72">
+									</td>
+									<td style="padding-left:24px">
+										<div style="font-weight:bold;line-height:24px;">Концерт живой музыки</div>
+										<div style="font-style:italic;line-height:24px;">Lorem ipsum dolor sit amet, consectetur sit amet, consectetur</div>
+									</td>
+								</tr>
+							</table>	
+						</div>
+						
+						<div class="category" style="margin-top:0px;" onClick="document.location.href='eskurs_sub.html'">
+							<table>
+								<tr>
+									<td colspan="2">
+										<img src="img/esk/museum.png" width="72" height="72">
+									</td>
+									<td style="padding-left:24px">
+										<div style="font-weight:bold;line-height:24px;">МотоГонки</div>
+										<div style="font-style:italic;line-height:24px;">Lorem ipsum dolor sit amet, consectetur sit amet, consectetur </div>
+									</td>
+								</tr>
+							</table>	
+						</div>
+						
+					</div>
+					<!-- end SlidesJS  slideshow -->
+				</div>
+			
+			</div>
+			
+			<div id="history" class="category">
+					<table>
+						<tr>
+							<td colspan="2">
+								<img src="img/small_map1.png" width="72" height="72">
+							</td>
+							<td style="padding-left:24px">
+								<div style="font-weight:bold;line-height:24px;">История</div>
+								<div style="font-style:italic;line-height:24px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit... </div>
+								<a class="cell" style="height:24px;float:right;line-height:24px;" href="map.html">На карту</a>
+							</td>
+						</tr>
+					</table>	
+			</div>
+		
+			<div id="taxiPopup" class="popup" style="display:none;">
+				<p>Заказать такси в текущую точку?</p>
+				<div class="popup_buttons">
+					<input type="button" value="OK" onclick="$('#taxiPopup').hide()" />
+					<input type="button" value="Отмена" onclick="$('#taxiPopup').hide()" />
+				</div>
+			</div>
+				
+			<a class="icon left" style="background: url('img/taxi.png') no-repeat top center; line-height:128px;" href="#" onclick="taxiClick()">Такси</a>
+			<a class="icon middle" style="background: url('img/mapi.png') no-repeat top center;" href="map.html">Карта</a>
+			<a class="icon right" style="background: url('img/transi.png') no-repeat top center" href="translate.html">Перевод</a>
+			
+			<a class="icon left" style="background: url('img/eati.png') no-repeat top center" href="eat.html">Еда</a>
+			<a class="icon middle"style="background: url('img/eski.png') no-repeat top center" href="eskurs.html">Экскурсии</a>
+			<a class="icon right" style="background: url('img/infoi.png') no-repeat top center" href="info.html">О месте</a>
+		
+		</div>
+		
+		</div>
+
+	</div>
+
+	<script type="text/javascript"> 
+		function taxiClick() {
+			$( "#taxiPopup" ).toggle();
+			
+		}
+	</script>
+	
+</body>
+
+</html>

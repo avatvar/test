@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link rel=stylesheet href="style.css">
+<link rel=stylesheet href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+</head>
+
+<body>
+
+	<div id="iphone">
+		
+		<div id="content">
+		
+			<div id="title">
+			<ul>
+				<li><a href="index.html">Главная</a></li>
+				<li><a href="map.html"><b>Карта</b></a></li>
+			</ul>
+			</div>
+			
+			<div id="map">
+				<button id="layers_btn" onclick="layers_show()">
+					<img src="img/Maps-and-Geolocation-Layers-icon.png" alt="layers" />
+				</button>
+				
+				<div id="layersPopup" class="popup" title="Выбор слоев" style="display:none;">
+					<label><input type="checkbox" />Туалеты</label>
+					<label><input type="checkbox" />Еда</label>
+					<label><input type="checkbox" />Достопримечательности</label>
+					<label><input type="checkbox" />Гостиницы</label>
+					<label><input type="checkbox" />Автосервисы</label>
+					<label><input type="checkbox" />Банкоматы</label>	
+				</div>
+			</div>
+			
+
+		
+		</div>
+		
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+ 
+		function layers_show() {
+			$( "#layersPopup" ).toggle();
+		}
+	</script>
+	
+</body>
+
+</html>
